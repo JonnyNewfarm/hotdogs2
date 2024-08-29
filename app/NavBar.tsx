@@ -1,21 +1,14 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 import React from "react";
 
 const NavBar = () => {
-  const currentPath = usePathname();
-  const links = [
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Products", href: "/products" },
-  ];
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar bg-base-300 w-full">
+        <div className="navbar  w-full">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"

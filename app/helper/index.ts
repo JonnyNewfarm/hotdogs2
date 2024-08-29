@@ -1,5 +1,5 @@
 const fetchData = async () => {
-    const res = await fetch("http://localhost:3000/api/products", {
+    const res = await fetch("http://localhost:3000/api/products/", {
         cache: "no-store",
       });
     if(!res.ok) {
@@ -14,5 +14,5 @@ const fetchData = async () => {
   export const getProductDetails = async(_id:string) => {
 const item = await fetchData();
 const singleItem = await item.find((product: any) => product._id === _id)
-
+return singleItem;
   }

@@ -7,9 +7,38 @@ type Props = {
 const ProductDetails = async ({ searchParams }: Props) => {
   const _idString = searchParams?._id;
   const _id = String(_idString);
-
   const product = await getProductDetails(_id);
-  console.log(product);
+
+  return (
+    <>
+      <h1 className="text-center font-bold text-2xl pb-10">{product.title}</h1>
+      <div className="card lg:card-side bg-indigo-50 shadow-xl">
+        <figure>
+          <img
+            style={{ objectFit: "cover" }}
+            src={product.image}
+            alt={product.image}
+          />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">Description</h2>
+          <p>{product.description}</p>
+          <div
+            className="mb-50"
+            style={{ marginBottom: "100px", marginTop: "15px" }}
+          >
+            <p className="font-semibold">Ingredients</p>
+            <p>{product.ingredients}</p>
+          </div>
+          <div className="card-actions justify-end">
+            <button className="btn bg-indigo-950 text-white">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default ProductDetails;
