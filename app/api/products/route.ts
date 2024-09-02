@@ -5,11 +5,18 @@ import { Types } from "mongoose";
 import { NextResponse } from "next/server";
 const ObjectId = require("mongoose").Types.ObjectId;
 
-export const GET = async () => {
+export const GET = async (request: Request) => {
     try {
+      const {searchParams} = new URL(request.url);
+      const page: any = parseInt(searchParams.get("page") || "1") 
+      const limit: any = parseInt(searchParams.get("limit") || "6") 
+     
         await connect();
-        const products = await Product.find();
-        return new NextResponse(JSON.stringify(products), {status: 200});
+        const skip = (page - 1) * limit;
+        const count = await Product.countDocuments()
+
+        const products = await Product.find().skip(skip).limit(limit);
+        return new NextResponse(JSON.stringify({products, count}), {status: 200});
     } catch (error: any) {
         return new NextResponse('Something went wrong trying to fetch products' + error.message, {status: 500})
     }

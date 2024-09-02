@@ -12,12 +12,12 @@ const ProductDetails = async ({ searchParams }: Props) => {
   return (
     <>
       <h1 className="text-center font-bold text-2xl pb-10">{product.title}</h1>
-      <div className="card lg:card-side bg-indigo-50 shadow-xl">
+      <div className="card lg:card-side bg-orange-50 shadow-xl">
         <figure>
           <img
             style={{ objectFit: "cover" }}
             src={product.image}
-            alt={product.image}
+            alt={product.title}
           />
         </figure>
         <div className="card-body">
