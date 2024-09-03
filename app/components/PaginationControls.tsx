@@ -1,6 +1,5 @@
 "use client";
 
-import { count } from "console";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationControlsProps {
@@ -21,9 +20,9 @@ const PaginationControls = ({
   const per_page = searchParams.get("per_page") ?? "6";
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-4">
       <button
-        className="bg-blue-500 text-white p-1"
+        className="btn btn-outline"
         disabled={!hasPrevPage}
         onClick={() => {
           router.push(
@@ -34,12 +33,12 @@ const PaginationControls = ({
         prev page
       </button>
 
-      <div>
+      <div className="mt-3">
         {page} / {Math.ceil(count / Number(per_page))}
       </div>
 
       <button
-        className="bg-blue-500 text-white p-1"
+        className="btn btn-outline"
         disabled={!hasNextPage}
         onClick={() => {
           router.push(

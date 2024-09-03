@@ -7,7 +7,11 @@ type Props = {
 const ProductDetails = async ({ searchParams }: Props) => {
   const _idString = searchParams?._id;
   const _id = String(_idString);
-  const product = await getProductDetails(_id);
+
+  const res = await fetch(`http://localhost:3000/api/products/${_id}`, {
+    cache: "no-store",
+  });
+  const product = await res.json();
 
   return (
     <>

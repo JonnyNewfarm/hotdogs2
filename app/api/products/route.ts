@@ -5,11 +5,15 @@ import { Types } from "mongoose";
 import { NextResponse } from "next/server";
 const ObjectId = require("mongoose").Types.ObjectId;
 
+
 export const GET = async (request: Request) => {
+ 
     try {
       const {searchParams} = new URL(request.url);
-      const page: any = parseInt(searchParams.get("page") || "1") 
-      const limit: any = parseInt(searchParams.get("limit") || "6") 
+
+      const page: any = parseInt(searchParams.get("page") || "1") ;
+      const limit: any = parseInt(searchParams.get("limit") || "6"); 
+  
      
         await connect();
         const skip = (page - 1) * limit;

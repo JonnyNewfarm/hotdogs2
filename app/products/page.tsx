@@ -12,7 +12,6 @@ const ProductsPage = async ({
   const per_page = searchParams["per_page"] ?? "6";
   const page1 = Number(page);
   const per_page1 = Number(per_page);
-  console.log(per_page1);
 
   const res = await fetch(
     `http://localhost:3000/api/products?page=${page}&limit=${per_page}`,
@@ -28,14 +27,13 @@ const ProductsPage = async ({
     <>
       <div>
         <ProductCard products={products} />
-      </div>
-      <PaginationControls
-        hasNextPage={hasNext}
-        hasPrevPage={hasPrev}
-        count={count}
-      />
-      <div>
-        {page} / {Math.ceil(count / Number(per_page))}
+        <div className="justify-center flex mb-36">
+          <PaginationControls
+            hasNextPage={hasNext}
+            hasPrevPage={hasPrev}
+            count={count}
+          />
+        </div>
       </div>
     </>
   );

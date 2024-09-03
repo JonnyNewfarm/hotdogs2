@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
+import SearchPage from "./search/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} style={{ overflowX: "hidden" }}>
         <NavBar />
+
         <main className="z-10 ml-20 mr-20 mt-20">{children}</main>
       </body>
     </html>
