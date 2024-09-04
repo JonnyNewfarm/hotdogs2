@@ -24,7 +24,7 @@ const ProductCard = ({ products }: Props) => {
             key={item._id}
           >
             <div
-              className="card card-compact bg-indigo-50 w-96 shadow-xl"
+              className="card card-compact bg-indigo-50 w-80 shadow-xl"
               style={{ height: "500px" }}
             >
               <figure>
@@ -44,7 +44,7 @@ const ProductCard = ({ products }: Props) => {
                 <p>{item.description}</p>
                 <div className="card-actions justify-end">
                   <button className=" btn bg-indigo-950 text-white ">
-                    Buy Now
+                    Read more
                   </button>
                 </div>
               </div>

@@ -12,7 +12,7 @@ export const GET = async (request: Request) => {
       const {searchParams} = new URL(request.url);
 
       const page: any = parseInt(searchParams.get("page") || "1") ;
-      const limit: any = parseInt(searchParams.get("limit") || "6"); 
+      const limit: any = parseInt(searchParams.get("limit") || "100"); 
   
      
         await connect();

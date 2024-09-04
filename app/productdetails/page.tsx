@@ -34,11 +34,6 @@ const ProductDetails = async ({ searchParams }: Props) => {
             <p className="font-semibold">Ingredients</p>
             <p>{product.ingredients}</p>
           </div>
-          <div className="card-actions justify-end">
-            <button className="btn bg-indigo-950 text-white">
-              Add to cart
-            </button>
-          </div>
         </div>
       </div>
     </>
